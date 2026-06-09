@@ -490,15 +490,27 @@
   .prog-nido .program-accent { background: #A8D5BA; }
   .prog-nido .program-ages { background: rgba(168,213,186,0.25); color: #2B6E4F; }
   .prog-nido .program-features li::before { background: #A8D5BA; }
-  .prog-primary .program-accent { background: var(--terracotta); }
-  .prog-primary .program-ages { background: rgba(200,97,58,0.12); color: var(--terracotta); }
-  .prog-primary .program-features li::before { background: var(--terracotta); }
+
+  .prog-toddler .program-accent { background: var(--terracotta); }
+  .prog-toddler .program-ages { background: rgba(200,97,58,0.12); color: var(--terracotta); }
+  .prog-toddler .program-features li::before { background: var(--terracotta); }
+
+  .prog-preschool .program-accent { background: var(--lavender); }
+  .prog-preschool .program-ages { background: rgba(184,169,212,0.2); color: #6B58A0; }
+  .prog-preschool .program-features li::before { background: var(--lavender); }
+
+  .prog-tk .program-accent { background: var(--sky); }
+  .prog-tk .program-ages { background: rgba(126,200,200,0.2); color: #2A7A7A; }
+  .prog-tk .program-features li::before { background: var(--sky); }
+
   .prog-elementary .program-accent { background: var(--gold); }
   .prog-elementary .program-ages { background: rgba(232,169,77,0.18); color: #8A6520; }
   .prog-elementary .program-features li::before { background: var(--gold); }
-  .prog-middle .program-accent { background: var(--green); }
-  .prog-middle .program-ages { background: rgba(29,74,53,0.1); color: var(--green); }
-  .prog-middle .program-features li::before { background: var(--green); }
+  .prog-elementary.program-card { grid-column: span 2; flex-direction: row; }
+  .prog-elementary .program-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+  .prog-elementary .program-body > h3,
+  .prog-elementary .program-body > span,
+  .prog-elementary .program-body > p { grid-column: 1 / -1; }
 
   /* ── FUN FACT CARDS ── */
   .fun-facts { background: var(--green); padding: 80px 40px; overflow: hidden; position: relative; }
@@ -1034,11 +1046,11 @@
         <button>Academics <span class="chevron">▾</span></button>
         <div class="dropdown">
           <a href="#programs">Programs Overview</a>
-          <a href="#">Nido (Infant/Toddler)</a>
-          <a href="#">Toddler (3–6)</a>
-          <a href="#">Lower Elementary (6–9)</a>
-          <a href="#">Upper Elementary (9–12)</a>
-
+          <a href="#">Nido (6 weeks – 18 months)</a>
+          <a href="#">Toddler (18 months – 2.5 years)</a>
+          <a href="#">Preschool (2.5 – 4 years)</a>
+          <a href="#">TK / Kindergarten (4 – 6 years)</a>
+          <a href="#">Elementary (6 – 12 years)</a>
         </div>
       </li>
       <li>
@@ -1089,7 +1101,7 @@
       </div>
       <div class="hero-stat-row">
         <span class="hero-stat-label">Grades Served</span>
-        <span class="hero-stat-value">Infant/Toddler – 6th Grade</span>
+        <span class="hero-stat-value">Nido through Elementary (6 wks – 12 yrs)</span>
       </div>
       <div class="hero-stat-row">
         <span class="hero-stat-label">Location</span>
@@ -1114,7 +1126,7 @@
   <div class="marquee-track">
     <span class="marquee-item"><span class="marquee-dot"></span>Tuition-Free Public Charter</span>
     <span class="marquee-item"><span class="marquee-dot"></span>AMS Accredited</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Infant through 6th Grade</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Nido through Elementary</span>
     <span class="marquee-item"><span class="marquee-dot"></span>10:1 Student-Teacher Ratio</span>
     <span class="marquee-item"><span class="marquee-dot"></span>WASC Accredited</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Costa Mesa, California</span>
@@ -1123,7 +1135,7 @@
     <!-- duplicate for seamless loop -->
     <span class="marquee-item"><span class="marquee-dot"></span>Tuition-Free Public Charter</span>
     <span class="marquee-item"><span class="marquee-dot"></span>AMS Accredited</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Infant through 6th Grade</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Nido through Elementary</span>
     <span class="marquee-item"><span class="marquee-dot"></span>10:1 Student-Teacher Ratio</span>
     <span class="marquee-item"><span class="marquee-dot"></span>WASC Accredited</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Costa Mesa, California</span>
@@ -1169,45 +1181,82 @@
     <div class="section-header">
       <span class="section-eyebrow">Academic Programs</span>
       <h2 class="section-title">Programs for every<br>stage of childhood</h2>
-      <p class="section-subtitle">From infant care through middle school, each program is thoughtfully designed around your child's developmental stage.</p>
+      <p class="section-subtitle">From Nido through Elementary, each program is thoughtfully designed around your child's developmental stage.</p>
     </div>
     <div class="programs-grid">
+
+      <!-- NIDO -->
       <a href="#" class="program-card prog-nido">
         <div class="program-accent"></div>
         <div class="program-body">
           <span class="program-ages">Ages 6 weeks – 18 months</span>
           <h3>Nido 🐣</h3>
-          <p>A warm, nurturing environment for infants to develop movement, language, and sensory awareness at their own pace alongside responsive caregivers.</p>
+          <p>A warm, nurturing environment where infants develop movement, language, and sensory awareness at their own pace alongside responsive, trained caregivers.</p>
           <ul class="program-features">
             <li>Low adult-to-infant ratio (1:4)</li>
-            <li>Freedom of movement</li>
-            <li>Natural materials and light</li>
+            <li>Freedom of movement environment</li>
+            <li>Natural materials and soft light</li>
           </ul>
         </div>
       </a>
-      <a href="#" class="program-card prog-primary">
+
+      <!-- TODDLER -->
+      <a href="#" class="program-card prog-toddler">
         <div class="program-accent"></div>
         <div class="program-body">
-          <span class="program-ages">Ages 3 – 6</span>
-          <h3>Toddler 🏡</h3>
-          <p>The foundation of Montessori education. Children develop independence, language, early math, and grace in a beautifully prepared classroom environment.</p>
+          <span class="program-ages">Ages 18 months – 2.5 years</span>
+          <h3>Toddler 🌻</h3>
+          <p>A gentle transition from Nido into a more structured Montessori setting, supporting independence, language explosion, and early social development.</p>
           <ul class="program-features">
-            <li>Practical life &amp; sensorial activities</li>
-            <li>Phonics and early literacy</li>
-            <li>Uninterrupted 3-hour work cycles</li>
+            <li>Practical life and self-care skills</li>
+            <li>Language-rich environment</li>
+            <li>Small group community setting</li>
           </ul>
         </div>
       </a>
+
+      <!-- PRESCHOOL -->
+      <a href="#" class="program-card prog-preschool">
+        <div class="program-accent"></div>
+        <div class="program-body">
+          <span class="program-ages">Ages 2.5 – 4 years</span>
+          <h3>Preschool 🎨</h3>
+          <p>Children blossom in a prepared classroom environment, building confidence through purposeful work, creative expression, and early academic foundations.</p>
+          <ul class="program-features">
+            <li>Sensorial and art activities</li>
+            <li>Pre-reading and pre-math materials</li>
+            <li>Grace, courtesy, and social skills</li>
+          </ul>
+        </div>
+      </a>
+
+      <!-- TK / KINDERGARTEN -->
+      <a href="#" class="program-card prog-tk">
+        <div class="program-accent"></div>
+        <div class="program-body">
+          <span class="program-ages">Ages 4 – 6 years</span>
+          <h3>TK / Kindergarten 🌟</h3>
+          <p>A rich academic and social environment where children dive into phonics, early math, science, and cultural studies through hands-on Montessori materials.</p>
+          <ul class="program-features">
+            <li>Phonics, reading, and writing</li>
+            <li>Montessori math materials</li>
+            <li>Science, geography, and music</li>
+          </ul>
+        </div>
+      </a>
+
+      <!-- ELEMENTARY (full width) -->
       <a href="#" class="program-card prog-elementary">
         <div class="program-accent"></div>
         <div class="program-body">
-          <span class="program-ages">Ages 6 – 12</span>
+          <span class="program-ages">Ages 6 – 12 years</span>
           <h3>Elementary 🔬</h3>
-          <p>The "going out" years. Students pursue academic mastery through research, collaboration, and community projects rooted in the Great Lessons framework.</p>
+          <p>The "going out" years — students pursue academic mastery through research, collaboration, and real-world projects rooted in the Great Lessons framework. California state standards aligned throughout.</p>
           <ul class="program-features">
             <li>Integrated humanities &amp; sciences</li>
             <li>Research and project-based learning</li>
-            <li>California state standards aligned</li>
+            <li>Lower Elementary (6–9) &amp; Upper Elementary (9–12)</li>
+            <li>Community service and field studies</li>
           </ul>
         </div>
       </a>
@@ -1413,9 +1462,9 @@
         <ul>
           <li><a href="#">Nido</a></li>
           <li><a href="#">Toddler</a></li>
-          <li><a href="#">Lower Elementary</a></li>
-          <li><a href="#">Upper Elementary</a></li>
-
+          <li><a href="#">Preschool</a></li>
+          <li><a href="#">TK / Kindergarten</a></li>
+          <li><a href="#">Elementary</a></li>
           <li><a href="#">Bell Schedule</a></li>
         </ul>
       </div>
@@ -1487,9 +1536,10 @@
         <select id="f-program">
           <option value="">Select a program</option>
           <option>Nido (6 weeks – 18 months)</option>
-          <option>Toddler (3 – 6 years)</option>
-          <option>Lower Elementary (1st – 3rd grade)</option>
-          <option>Upper Elementary (4th – 6th grade)</option>
+          <option>Toddler (18 months – 2.5 years)</option>
+          <option>Preschool (2.5 – 4 years)</option>
+          <option>TK / Kindergarten (4 – 6 years)</option>
+          <option>Elementary (6 – 12 years)</option>
 
         </select>
       </div>
