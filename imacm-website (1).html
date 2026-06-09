@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>International Montessori Academy of Costa Mesa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C8613A;
+    --terracotta-light: #E8856A;
+    --green: #1D4A35;
+    --green-light: #2B6E4F;
+    --cream: #FAF6F0;
+    --cream-dark: #F0E9DF;
+    --gold: #E8A94D;
+    --sky: #7EC8C8;
+    --lavender: #B8A9D4;
+    --charcoal: #2A2A2A;
+    --warm-gray: #7A6E65;
+    --white: #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 0 40px;
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo-mark {
+    width: 44px;
+    height: 44px;
+    background: var(--green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+  .nav-logo:hover .nav-logo-mark { transform: rotate(15deg) scale(1.05); }
+  .nav-logo-mark svg { width: 24px; height: 24px; }
+  .nav-logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+  .nav-logo-text .school-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--green);
+    letter-spacing: 0.01em;
+  }
+  .nav-logo-text .school-location {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--warm-gray);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+  }
+  .nav-links > li { position: relative; }
+  .nav-links > li > a, .nav-links > li > button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--charcoal);
+    text-decoration: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+  }
+  .nav-links > li > a:hover, .nav-links > li > button:hover {
+    background: var(--cream);
+    color: var(--green);
+  }
+  .chevron { font-size: 10px; transition: transform 0.2s; }
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 10px;
+    padding: 8px;
+    min-width: 210px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  }
+  .nav-links > li:hover .dropdown { display: block; }
+  .dropdown a {
+    display: block;
+    padding: 9px 14px;
+    font-size: 14px;
+    color: var(--charcoal);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .dropdown a:hover { background: var(--cream); color: var(--green); }
+  .nav-cta {
+    background: var(--terracotta) !important;
+    color: var(--white) !important;
+    border-radius: 8px !important;
+    padding: 9px 20px !important;
+    font-weight: 600 !important;
+  }
+  .nav-cta:hover { background: #b35530 !important; }
+
+  /* ── ANNOUNCEMENT BAR ── */
+  .announcement {
+    background: var(--green);
+    color: var(--white);
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 13.5px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+  .announcement a { color: var(--gold); font-weight: 600; text-decoration: none; }
+  .announcement a:hover { text-decoration: underline; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--green);
+    overflow: hidden;
+    position: relative;
+    padding: 100px 40px 80px;
+  }
+  .hero-bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 70% 30%, rgba(232,169,77,0.12) 0%, transparent 55%),
+      radial-gradient(circle at 20% 80%, rgba(200,97,58,0.15) 0%, transparent 45%);
+    pointer-events: none;
+  }
+  /* Floating doodles in hero */
+  .hero-doodles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .doodle {
+    position: absolute;
+    opacity: 0.13;
+    font-size: 40px;
+    animation: floatDoodle 8s ease-in-out infinite;
+    user-select: none;
+  }
+  .doodle:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; font-size: 30px; }
+  .doodle:nth-child(2) { top: 60%; left: 3%; animation-delay: 1.5s; font-size: 36px; }
+  .doodle:nth-child(3) { top: 20%; right: 8%; animation-delay: 0.8s; font-size: 28px; }
+  .doodle:nth-child(4) { bottom: 15%; right: 5%; animation-delay: 2s; font-size: 44px; }
+  .doodle:nth-child(5) { bottom: 30%; left: 8%; animation-delay: 3s; font-size: 26px; }
+  @keyframes floatDoodle {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-12px) rotate(5deg); }
+    66% { transform: translateY(6px) rotate(-3deg); }
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 200px;
+    line-height: 0.7;
+    color: var(--terracotta);
+    opacity: 0.35;
+    margin-bottom: -20px;
+    display: block;
+    user-select: none;
+  }
+  .hero-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(28px, 3vw, 42px);
+    line-height: 1.35;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+  .hero-attribution {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 48px;
+  }
+  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: var(--terracotta);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: #b35530; transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: transparent;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    cursor: pointer;
+  }
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.07); transform: translateY(-1px); }
+
+  /* Hero Card Panel */
+  .hero-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 16px;
+    padding: 36px;
+    backdrop-filter: blur(6px);
+  }
+  .hero-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 20px;
+    letter-spacing: 0.01em;
+  }
+  .hero-stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .hero-stat-row:last-of-type { border-bottom: none; }
+  .hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.65); font-weight: 400; }
+  .hero-stat-value { font-size: 13px; color: var(--white); font-weight: 600; text-align: right; }
+  .hero-badge {
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--terracotta);
+    color: var(--white);
+    padding: 9px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ── SECTION GLOBALS ── */
+  section { padding: 90px 40px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 3.5vw, 52px);
+    font-weight: 600;
+    line-height: 1.18;
+    color: var(--green);
+    margin-bottom: 16px;
+  }
+  .section-subtitle {
+    font-size: 17px;
+    color: var(--warm-gray);
+    line-height: 1.65;
+    max-width: 600px;
+    font-weight: 300;
+  }
+  .section-header { margin-bottom: 56px; }
+
+  /* ── FUN MARQUEE STRIP ── */
+  .marquee-strip {
+    background: var(--gold);
+    padding: 14px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-track {
+    display: inline-flex;
+    animation: marqueeScroll 28s linear infinite;
+    gap: 0;
+  }
+  .marquee-strip:hover .marquee-track { animation-play-state: paused; }
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0 32px;
+  }
+  .marquee-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    flex-shrink: 0;
+  }
+  @keyframes marqueeScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── PHILOSOPHY PILLARS ── */
+  .philosophy { background: var(--cream-dark); }
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .pillar {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .pillar:hover { transform: translateY(-6px) rotate(-0.5deg); box-shadow: 0 16px 48px rgba(0,0,0,0.1); }
+  .pillar-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    font-weight: 700;
+    color: var(--cream-dark);
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    line-height: 1;
+    user-select: none;
+  }
+  .pillar-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    transition: transform 0.3s;
+  }
+  .pillar:hover .pillar-icon { transform: scale(1.15) rotate(-8deg); }
+  .pillar:nth-child(1) .pillar-icon { background: rgba(126,200,200,0.2); }
+  .pillar:nth-child(2) .pillar-icon { background: rgba(200,97,58,0.12); }
+  .pillar:nth-child(3) .pillar-icon { background: rgba(232,169,77,0.2); }
+  .pillar h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .pillar p { font-size: 15px; color: var(--warm-gray); line-height: 1.7; font-weight: 300; }
+
+  /* ── PROGRAMS ── */
+  .programs { background: var(--white); }
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  .program-card {
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--cream);
+    display: flex;
+    gap: 0;
+    transition: box-shadow 0.25s, transform 0.25s;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+  }
+  .program-card:hover { box-shadow: 0 14px 44px rgba(0,0,0,0.12); transform: translateY(-4px) rotate(0.3deg); }
+  .program-accent { width: 6px; flex-shrink: 0; }
+  .program-body { padding: 32px 28px; flex: 1; }
+  .program-ages {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .program-body h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  .program-body p { font-size: 14.5px; color: var(--warm-gray); line-height: 1.7; font-weight: 300; margin-bottom: 20px; }
+  .program-features { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .program-features li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--charcoal);
+    font-weight: 400;
+  }
+  .program-features li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .prog-nido .program-accent { background: #A8D5BA; }
+  .prog-nido .program-ages { background: rgba(168,213,186,0.25); color: #2B6E4F; }
+  .prog-nido .program-features li::before { background: #A8D5BA; }
+  .prog-primary .program-accent { background: var(--terracotta); }
+  .prog-primary .program-ages { background: rgba(200,97,58,0.12); color: var(--terracotta); }
+  .prog-primary .program-features li::before { background: var(--terracotta); }
+  .prog-elementary .program-accent { background: var(--gold); }
+  .prog-elementary .program-ages { background: rgba(232,169,77,0.18); color: #8A6520; }
+  .prog-elementary .program-features li::before { background: var(--gold); }
+  .prog-middle .program-accent { background: var(--green); }
+  .prog-middle .program-ages { background: rgba(29,74,53,0.1); color: var(--green); }
+  .prog-middle .program-features li::before { background: var(--green); }
+
+  /* ── FUN FACT CARDS ── */
+  .fun-facts { background: var(--green); padding: 80px 40px; overflow: hidden; position: relative; }
+  .fun-facts-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 600;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .fun-facts-title span { color: var(--gold); font-style: italic; }
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .fact-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: background 0.25s, transform 0.25s;
+    cursor: default;
+  }
+  .fact-card:hover { background: rgba(255,255,255,0.14); transform: translateY(-4px); }
+  .fact-emoji { font-size: 44px; display: block; margin-bottom: 16px; }
+  .fact-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .fact-text span { color: var(--gold); }
+  .fact-label { font-size: 13px; color: rgba(255,255,255,0.65); font-weight: 400; line-height: 1.4; }
+
+  /* ── WHY MONTESSORI ── */
+  .why { background: var(--cream); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .why-list { display: flex; flex-direction: column; gap: 0; margin-top: 40px; }
+  .why-item {
+    display: flex;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+  }
+  .why-item:first-child { border-top: 1px solid rgba(0,0,0,0.07); }
+  .why-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: var(--cream-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: transform 0.3s;
+  }
+  .why-item:hover .why-icon { transform: rotate(-10deg) scale(1.1); }
+  .why-item-text h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 6px;
+  }
+  .why-item-text p { font-size: 14.5px; color: var(--warm-gray); line-height: 1.65; font-weight: 300; }
+  .why-callout {
+    background: var(--green);
+    border-radius: 24px;
+    padding: 48px 40px;
+    color: var(--white);
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .why-callout::after {
+    content: '✦';
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    font-size: 100px;
+    color: rgba(255,255,255,0.04);
+    user-select: none;
+  }
+  .why-callout blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.55;
+    margin-bottom: 20px;
+    color: rgba(255,255,255,0.92);
+    position: relative;
+    z-index: 1;
+  }
+  .why-callout cite { font-size: 13px; font-style: normal; color: var(--gold); font-weight: 500; letter-spacing: 0.06em; }
+  .why-outcomes {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 36px;
+  }
+  .why-outcomes h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--green);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .outcome-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+  .outcome-row:last-child { border-bottom: none; }
+  .outcome-bar-wrap { flex: 1; height: 7px; background: var(--cream-dark); border-radius: 4px; overflow: hidden; }
+  .outcome-bar { height: 100%; border-radius: 4px; background: var(--terracotta); transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
+  .outcome-label { font-size: 13px; font-weight: 400; color: var(--charcoal); min-width: 170px; }
+  .outcome-pct { font-size: 13px; font-weight: 600; color: var(--green); min-width: 40px; text-align: right; }
+
+  /* ── ENROLLMENT ── */
+  .enrollment { background: var(--white); }
+  .enrollment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .enrollment-steps { display: flex; flex-direction: column; gap: 0; margin-top: 36px; }
+  .enroll-step { display: flex; gap: 20px; padding-bottom: 32px; position: relative; }
+  .enroll-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 40px;
+    width: 1px;
+    height: calc(100% - 20px);
+    background: var(--cream-dark);
+  }
+  .step-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--green);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 700;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .step-content h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 6px;
+    padding-top: 6px;
+  }
+  .step-content p { font-size: 14.5px; color: var(--warm-gray); line-height: 1.65; font-weight: 300; }
+
+  /* ── TOUR BANNER ── */
+  .tour-banner {
+    background: var(--terracotta);
+    padding: 64px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .tour-banner::before {
+    content: '☀️';
+    position: absolute;
+    font-size: 200px;
+    opacity: 0.06;
+    top: -40px;
+    left: 5%;
+    pointer-events: none;
+    user-select: none;
+  }
+  .tour-banner::after {
+    content: '🎓';
+    position: absolute;
+    font-size: 160px;
+    opacity: 0.06;
+    bottom: -30px;
+    right: 5%;
+    pointer-events: none;
+    user-select: none;
+  }
+  .tour-banner h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .tour-banner p { font-size: 17px; color: rgba(255,255,255,0.8); margin-bottom: 32px; font-weight: 300; max-width: 520px; margin-left: auto; margin-right: auto; position: relative; }
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: var(--white);
+    color: var(--terracotta);
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+    position: relative;
+  }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #141414;
+    color: rgba(255,255,255,0.7);
+    padding: 72px 40px 40px;
+  }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+  .footer-brand .footer-logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+  .footer-brand p { font-size: 14px; line-height: 1.7; font-weight: 300; margin-bottom: 20px; max-width: 280px; }
+  .footer-accreditation { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; color: var(--gold); }
+  .footer-col h4 { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul li a { font-size: 14px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.15s; font-weight: 300; }
+  .footer-col ul li a:hover { color: var(--white); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-bottom p { font-size: 13px; font-weight: 300; }
+  .footer-bottom-links { display: flex; gap: 20px; }
+  .footer-bottom-links a { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; }
+  .footer-bottom-links a:hover { color: var(--white); }
+
+  /* ── FLOATING REQUEST INFO BUTTON ── */
+  .float-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 300;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+  }
+  .float-trigger {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--terracotta);
+    color: var(--white);
+    border: none;
+    border-radius: 20px;
+    padding: 18px 28px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 32px rgba(200,97,58,0.5), 0 2px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+  }
+  .float-trigger:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 14px 40px rgba(200,97,58,0.6), 0 4px 12px rgba(0,0,0,0.15); }
+  .float-trigger .ft-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.22);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+  .float-trigger:hover .ft-icon { transform: rotate(15deg); }
+  .float-trigger .ft-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.2;
+  }
+  .float-trigger .ft-text .ft-label {
+    font-size: 11px;
+    font-weight: 500;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .float-trigger .ft-text .ft-main {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .float-trigger .ft-pulse {
+    width: 10px;
+    height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
+    box-shadow: 0 0 0 0 rgba(232,169,77,0.6);
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(232,169,77,0.6); }
+    70% { box-shadow: 0 0 0 8px rgba(232,169,77,0); }
+    100% { box-shadow: 0 0 0 0 rgba(232,169,77,0); }
+  }
+
+  /* ── REQUEST INFO MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 400;
+    backdrop-filter: blur(4px);
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 100px 28px 28px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-panel {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 40px;
+    width: 100%;
+    max-width: 460px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+    animation: modalSlideUp 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  @keyframes modalSlideUp {
+    from { transform: translateY(40px) scale(0.95); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+  }
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
+  }
+  .modal-header h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--green);
+    line-height: 1.2;
+  }
+  .modal-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: var(--cream-dark);
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--warm-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: background 0.15s;
+  }
+  .modal-close:hover { background: var(--cream); color: var(--charcoal); }
+  .modal-subtitle { font-size: 14px; color: var(--warm-gray); margin-bottom: 24px; font-weight: 300; }
+  .form-group { margin-bottom: 14px; }
+  .form-group label {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .form-group input, .form-group select {
+    width: 100%;
+    padding: 11px 13px;
+    background: var(--cream);
+    border: 1.5px solid transparent;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--charcoal);
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+    appearance: none;
+  }
+  .form-group input:focus, .form-group select:focus {
+    border-color: var(--green);
+    background: var(--white);
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--terracotta);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .form-submit:hover { background: #b35530; transform: translateY(-1px); }
+  .form-note { font-size: 12px; color: var(--warm-gray); margin-top: 10px; text-align: center; }
+  .modal-success {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+  }
+  .modal-success .success-icon { font-size: 56px; margin-bottom: 16px; }
+  .modal-success h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 10px;
+  }
+  .modal-success p { font-size: 15px; color: var(--warm-gray); font-weight: 300; line-height: 1.6; }
+
+  /* ── HAMBURGER ── */
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); border-radius: 2px; }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    .hamburger { display: flex; }
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--white); padding: 16px 20px 24px; border-bottom: 1px solid rgba(0,0,0,0.08); gap: 4px; z-index: 200; }
+    .nav-links.open { display: flex; }
+    .nav-links > li > a, .nav-links > li > button { width: 100%; }
+    .dropdown { position: static; box-shadow: none; border: none; background: var(--cream); border-radius: 8px; margin-top: 4px; display: none; }
+    .nav-links > li.open-dd .dropdown { display: block; }
+    .hero { padding: 60px 20px 60px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    section { padding: 64px 20px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .programs-grid { grid-template-columns: 1fr; }
+    .facts-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: 1fr; gap: 40px; }
+    .enrollment-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .form-row { grid-template-columns: 1fr; }
+    .modal-overlay { padding: 20px 16px; align-items: flex-end; justify-content: center; }
+    .float-btn { bottom: 20px; right: 20px; }
+    .float-trigger { padding: 14px 18px; border-radius: 16px; }
+    .float-trigger .ft-text .ft-label { display: none; }
+    .float-trigger .ft-text .ft-main { font-size: 14px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div class="announcement">
+  🎉 Now accepting enrollment applications for the 2025–2026 school year. &nbsp;<a href="#enrollment">Apply today →</a>
+</div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="8" r="3.5" fill="#E8A94D"/>
+          <circle cx="6" cy="16" r="2.5" fill="rgba(255,255,255,0.6)"/>
+          <circle cx="12" cy="19" r="2.5" fill="rgba(255,255,255,0.6)"/>
+          <circle cx="18" cy="16" r="2.5" fill="rgba(255,255,255,0.6)"/>
+          <line x1="12" y1="11.5" x2="6" y2="13.5" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+          <line x1="12" y1="11.5" x2="12" y2="16.5" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+          <line x1="12" y1="11.5" x2="18" y2="13.5" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="nav-logo-text">
+        <span class="school-name">International Montessori Academy</span>
+        <span class="school-location">Costa Mesa, California</span>
+      </div>
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li>
+        <button>About <span class="chevron">▾</span></button>
+        <div class="dropdown">
+          <a href="#philosophy">Our Philosophy</a>
+          <a href="#why">Why Montessori</a>
+          <a href="#">Mission &amp; Vision</a>
+          <a href="#">Administration</a>
+          <a href="#">Board of Directors</a>
+          <a href="#">Charter Documents</a>
+        </div>
+      </li>
+      <li>
+        <button>Academics <span class="chevron">▾</span></button>
+        <div class="dropdown">
+          <a href="#programs">Programs Overview</a>
+          <a href="#">Nido (Infant/Toddler)</a>
+          <a href="#">Toddler (3–6)</a>
+          <a href="#">Lower Elementary (6–9)</a>
+          <a href="#">Upper Elementary (9–12)</a>
+          <a href="#">Middle School (12–15)</a>
+        </div>
+      </li>
+      <li>
+        <button>Families <span class="chevron">▾</span></button>
+        <div class="dropdown">
+          <a href="#">Current Family Portal</a>
+          <a href="#">School Calendar</a>
+          <a href="#">Bell Schedule</a>
+          <a href="#">Parent Resources</a>
+          <a href="#">School Policies</a>
+        </div>
+      </li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#enrollment" class="nav-cta">Enroll Now</a></li>
+    </ul>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-doodles" aria-hidden="true">
+    <span class="doodle">✏️</span>
+    <span class="doodle">🔭</span>
+    <span class="doodle">🌿</span>
+    <span class="doodle">🎨</span>
+    <span class="doodle">📐</span>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-quote-mark" aria-hidden="true">"</div>
+      <p class="hero-quote">The child is both a hope and a promise for mankind.</p>
+      <p class="hero-attribution">— Maria Montessori</p>
+      <div class="hero-buttons">
+        <a href="#enrollment" class="btn-primary">Apply for Enrollment</a>
+        <a href="#programs" class="btn-outline">Explore Programs</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Quick Facts</h3>
+      <div class="hero-stat-row">
+        <span class="hero-stat-label">School Type</span>
+        <span class="hero-stat-value">Public Charter, Tuition-Free</span>
+      </div>
+      <div class="hero-stat-row">
+        <span class="hero-stat-label">Grades Served</span>
+        <span class="hero-stat-value">Infant/Toddler – 8th Grade</span>
+      </div>
+      <div class="hero-stat-row">
+        <span class="hero-stat-label">Location</span>
+        <span class="hero-stat-value">Costa Mesa, CA</span>
+      </div>
+
+      <div class="hero-stat-row">
+        <span class="hero-stat-label">Student-Teacher Ratio</span>
+        <span class="hero-stat-value">10:1</span>
+      </div>
+      <div class="hero-stat-row">
+        <span class="hero-stat-label">Enrollment Status</span>
+        <span class="hero-stat-value">Open – 2025–26</span>
+      </div>
+      <div class="hero-badge">🌱 Serving Orange County Families Since 2007</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-dot"></span>Tuition-Free Public Charter</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>AMS Accredited</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Infant through 8th Grade</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>10:1 Student-Teacher Ratio</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>WASC Accredited</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Costa Mesa, California</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Now Enrolling 2025–26</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>IB Aligned Curriculum</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item"><span class="marquee-dot"></span>Tuition-Free Public Charter</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>AMS Accredited</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Infant through 8th Grade</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>10:1 Student-Teacher Ratio</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>WASC Accredited</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Costa Mesa, California</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Now Enrolling 2025–26</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>IB Aligned Curriculum</span>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="philosophy">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Our Approach</span>
+      <h2 class="section-title">A philosophy rooted<br>in the whole child</h2>
+      <p class="section-subtitle">Montessori education honors each child's natural drive to learn, explore, and contribute to the world around them.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar-number" aria-hidden="true">I</div>
+        <div class="pillar-icon">🌱</div>
+        <h3>Child-Led Discovery</h3>
+        <p>Children choose their work within a carefully prepared environment, developing intrinsic motivation and deep concentration that lasts a lifetime.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-number" aria-hidden="true">II</div>
+        <div class="pillar-icon">🤝</div>
+        <h3>Mixed-Age Community</h3>
+        <p>Multi-age classrooms spanning 3-year spans foster mentorship, empathy, and leadership. Older students reinforce their learning by guiding younger peers.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-number" aria-hidden="true">III</div>
+        <div class="pillar-icon">🧠</div>
+        <h3>Hands-On Materials</h3>
+        <p>Montessori materials are specifically designed to make abstract concepts tangible, engaging all senses and accommodating every learning style.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Academic Programs</span>
+      <h2 class="section-title">Programs for every<br>stage of childhood</h2>
+      <p class="section-subtitle">From infant care through middle school, each program is thoughtfully designed around your child's developmental stage.</p>
+    </div>
+    <div class="programs-grid">
+      <a href="#" class="program-card prog-nido">
+        <div class="program-accent"></div>
+        <div class="program-body">
+          <span class="program-ages">Ages 6 weeks – 18 months</span>
+          <h3>Nido 🐣</h3>
+          <p>A warm, nurturing environment for infants to develop movement, language, and sensory awareness at their own pace alongside responsive caregivers.</p>
+          <ul class="program-features">
+            <li>Low adult-to-infant ratio (1:4)</li>
+            <li>Freedom of movement</li>
+            <li>Natural materials and light</li>
+          </ul>
+        </div>
+      </a>
+      <a href="#" class="program-card prog-primary">
+        <div class="program-accent"></div>
+        <div class="program-body">
+          <span class="program-ages">Ages 3 – 6</span>
+          <h3>Toddler 🏡</h3>
+          <p>The foundation of Montessori education. Children develop independence, language, early math, and grace in a beautifully prepared classroom environment.</p>
+          <ul class="program-features">
+            <li>Practical life &amp; sensorial activities</li>
+            <li>Phonics and early literacy</li>
+            <li>Uninterrupted 3-hour work cycles</li>
+          </ul>
+        </div>
+      </a>
+      <a href="#" class="program-card prog-elementary">
+        <div class="program-accent"></div>
+        <div class="program-body">
+          <span class="program-ages">Ages 6 – 12</span>
+          <h3>Elementary 🔬</h3>
+          <p>The "going out" years. Students pursue academic mastery through research, collaboration, and community projects rooted in the Great Lessons framework.</p>
+          <ul class="program-features">
+            <li>Integrated humanities &amp; sciences</li>
+            <li>Research and project-based learning</li>
+            <li>California state standards aligned</li>
+          </ul>
+        </div>
+      </a>
+      <a href="#" class="program-card prog-middle">
+        <div class="program-accent"></div>
+        <div class="program-body">
+          <span class="program-ages">Ages 12 – 15</span>
+          <h3>Middle School 🌍</h3>
+          <p>Adolescent students build identity and purpose through Erdkinder principles: real-world experience, entrepreneurship, and deep academic challenge.</p>
+          <ul class="program-features">
+            <li>Micro-enterprise &amp; community service</li>
+            <li>College preparatory coursework</li>
+            <li>Interdisciplinary project focus</li>
+          </ul>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FUN FACTS -->
+<div class="fun-facts">
+  <h2 class="fun-facts-title">A few things that make us <span>pretty great</span></h2>
+  <div class="facts-grid">
+    <div class="fact-card">
+      <span class="fact-emoji">📚</span>
+      <div class="fact-text">87<span>%</span></div>
+      <div class="fact-label">Students reading at or above grade level</div>
+    </div>
+    <div class="fact-card">
+      <span class="fact-emoji">🤸</span>
+      <div class="fact-text">3<span>hrs</span></div>
+      <div class="fact-label">Uninterrupted daily work time for deep focus</div>
+    </div>
+    <div class="fact-card">
+      <span class="fact-emoji">🌎</span>
+      <div class="fact-text">22<span>+</span></div>
+      <div class="fact-label">Nationalities represented in our community</div>
+    </div>
+    <div class="fact-card">
+      <span class="fact-emoji">👩‍🏫</span>
+      <div class="fact-text">10<span>:1</span></div>
+      <div class="fact-label">Student-to-teacher ratio — every child is known</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY MONTESSORI -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-left">
+        <span class="section-eyebrow">Why Montessori</span>
+        <h2 class="section-title">Outcomes that speak for themselves</h2>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-icon">📚</div>
+            <div class="why-item-text">
+              <h4>Academic Excellence</h4>
+              <p>Research consistently shows Montessori students outperform traditional school peers in literacy, mathematics, and executive function.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">💬</div>
+            <div class="why-item-text">
+              <h4>Social-Emotional Growth</h4>
+              <p>Mixed-age classrooms develop empathy, conflict resolution, and cooperation — skills that matter as much as academic ones.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🎯</div>
+            <div class="why-item-text">
+              <h4>Intrinsic Motivation</h4>
+              <p>Without grades or external rewards, children learn to love learning for its own sake, a habit that carries into adulthood and career.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🌍</div>
+            <div class="why-item-text">
+              <h4>Global Perspective</h4>
+              <p>Our international curriculum and culturally diverse community prepare students to navigate and contribute to an interconnected world.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="why-right">
+        <div class="why-callout">
+          <blockquote>"The greatest sign of success for a teacher is being able to say, 'The children are now working as if I did not exist.'"</blockquote>
+          <cite>— Maria Montessori, The Absorbent Mind</cite>
+        </div>
+        <div class="why-outcomes">
+          <h4>Student Achievement at IMACM</h4>
+          <div class="outcome-row">
+            <span class="outcome-label">Reading Proficiency</span>
+            <div class="outcome-bar-wrap"><div class="outcome-bar" style="width:87%"></div></div>
+            <span class="outcome-pct">87%</span>
+          </div>
+          <div class="outcome-row">
+            <span class="outcome-label">Math Proficiency</span>
+            <div class="outcome-bar-wrap"><div class="outcome-bar" style="width:79%"></div></div>
+            <span class="outcome-pct">79%</span>
+          </div>
+          <div class="outcome-row">
+            <span class="outcome-label">Family Satisfaction</span>
+            <div class="outcome-bar-wrap"><div class="outcome-bar" style="width:96%; background: var(--green);"></div></div>
+            <span class="outcome-pct">96%</span>
+          </div>
+          <div class="outcome-row">
+            <span class="outcome-label">Graduates Accepted<br>to Top High Schools</span>
+            <div class="outcome-bar-wrap"><div class="outcome-bar" style="width:91%; background: var(--gold);"></div></div>
+            <span class="outcome-pct">91%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENROLLMENT -->
+<section class="enrollment" id="enrollment">
+  <div class="container">
+    <div class="enrollment-grid">
+      <div>
+        <span class="section-eyebrow">How to Enroll</span>
+        <h2 class="section-title">The path to IMACM is simple</h2>
+        <p class="section-subtitle" style="margin-bottom:0;">As a public charter school, there are no tuition fees. Every family is welcome to apply.</p>
+        <div class="enrollment-steps">
+          <div class="enroll-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h4>Request Information</h4>
+              <p>Use the button in the corner or fill out our short inquiry form. Our enrollment team will contact you within 2 business days.</p>
+            </div>
+          </div>
+          <div class="enroll-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h4>Attend a Campus Tour</h4>
+              <p>See our prepared environments firsthand. Tours are held on the first and third Tuesday of each month at 9:00 a.m.</p>
+            </div>
+          </div>
+          <div class="enroll-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h4>Complete the Application</h4>
+              <p>Submit your application online or in person. If the program is at capacity, your child is placed on our waitlist in order of application date.</p>
+            </div>
+          </div>
+          <div class="enroll-step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <h4>Accept Your Offer</h4>
+              <p>Once accepted, return your enrollment agreement and required documents. Welcome to the IMACM family!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:20px; align-items:flex-start;">
+        <div style="background:var(--cream-dark); border-radius:20px; padding:36px; width:100%;">
+          <div style="font-size:48px; margin-bottom:16px;">🎒</div>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; color:var(--green); margin-bottom:10px;">Ready to get started?</h3>
+          <p style="font-size:15px; color:var(--warm-gray); font-weight:300; line-height:1.65; margin-bottom:24px;">Click the button in the bottom-right corner to request information — or give us a call and we'll walk you through everything.</p>
+          <button onclick="openModal()" class="btn-primary" style="width:100%; justify-content:center; font-size:15px;">
+            📋 Request Information
+          </button>
+          <div style="margin-top:20px; display:flex; flex-direction:column; gap:10px;">
+            <a href="tel:7145550100" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--charcoal); font-size:14px; font-weight:500;">
+              <span style="width:36px; height:36px; background:var(--white); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">📞</span>
+              (714) 555-0100
+            </a>
+            <a href="mailto:info@imacm.org" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--charcoal); font-size:14px; font-weight:500;">
+              <span style="width:36px; height:36px; background:var(--white); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">✉️</span>
+              info@imacm.org
+            </a>
+            <a href="#" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--charcoal); font-size:14px; font-weight:500;">
+              <span style="width:36px; height:36px; background:var(--white); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">📍</span>
+              1234 Fairview Rd, Costa Mesa CA 92626
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOUR BANNER -->
+<div class="tour-banner">
+  <h2>Come see us in person.</h2>
+  <p>The best way to understand Montessori is to watch children at work. Schedule a free campus tour today.</p>
+  <a href="#enrollment" class="btn-white">Schedule a Tour →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-text">International Montessori<br>Academy of Costa Mesa</div>
+        <p>A public, tuition-free TK–8 charter school serving families in Costa Mesa and throughout Orange County since 2007.</p>
+
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Mission &amp; Vision</a></li>
+          <li><a href="#">Our Philosophy</a></li>
+          <li><a href="#">Administration</a></li>
+          <li><a href="#">Board of Directors</a></li>
+          <li><a href="#">Charter Documents</a></li>
+          <li><a href="#">SARC Report</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Academics</h4>
+        <ul>
+          <li><a href="#">Nido</a></li>
+          <li><a href="#">Toddler</a></li>
+          <li><a href="#">Lower Elementary</a></li>
+          <li><a href="#">Upper Elementary</a></li>
+          <li><a href="#">Middle School</a></li>
+          <li><a href="#">Bell Schedule</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">1234 Fairview Rd<br>Costa Mesa, CA 92626</a></li>
+          <li><a href="tel:7145550100">(714) 555-0100</a></li>
+          <li><a href="mailto:info@imacm.org">info@imacm.org</a></li>
+          <li><a href="#">Parent Portal</a></li>
+          <li><a href="#">Staff Login</a></li>
+          <li><a href="#">Site Map</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 International Montessori Academy of Costa Mesa. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Nondiscrimination Policy</a>
+        <a href="#">Title IX</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING REQUEST INFO BUTTON -->
+<div class="float-btn" id="float-btn">
+  <button class="float-trigger" onclick="openModal()" aria-label="Request Information">
+    <span class="ft-icon">📋</span>
+    <span class="ft-text">
+      <span class="ft-label">Enroll Today</span>
+      <span class="ft-main">Request Information</span>
+    </span>
+    <span class="ft-pulse"></span>
+  </button>
+</div>
+
+<!-- REQUEST INFO MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal-panel" id="modal-panel">
+    <div id="modal-form-content">
+      <div class="modal-header">
+        <h3>Let's get<br>you started</h3>
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+      </div>
+      <p class="modal-subtitle">Tell us about your family and we'll reach out with everything you need to know about IMACM.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="First name" id="f-first">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Last name" id="f-last">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="your@email.com" id="f-email">
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="(714) 555-0100" id="f-phone">
+      </div>
+      <div class="form-group">
+        <label>Child's Program Interest</label>
+        <select id="f-program">
+          <option value="">Select a program</option>
+          <option>Nido (6 weeks – 18 months)</option>
+          <option>Toddler (3 – 6 years)</option>
+          <option>Lower Elementary (1st – 3rd grade)</option>
+          <option>Upper Elementary (4th – 6th grade)</option>
+          <option>Middle School (7th – 8th grade)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>How did you hear about us?</label>
+        <select id="f-source">
+          <option value="">Please select</option>
+          <option>Google Search</option>
+          <option>Referral from another IMACM Family</option>
+          <option>Social Media</option>
+          <option>Niche.com or School Finder</option>
+          <option>Local Event or Fair</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <button class="form-submit" onclick="submitModal()">Send My Inquiry →</button>
+      <p class="form-note">🔒 Your information is private and never shared with third parties.</p>
+    </div>
+    <div class="modal-success" id="modal-success">
+      <div class="success-icon">🎉</div>
+      <h4>We'll be in touch!</h4>
+      <p>Thanks for reaching out. A member of our enrollment team will contact you within 2 business days. In the meantime, feel free to explore our programs or call us at (714) 555-0100.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+  // Mobile dropdown
+  document.querySelectorAll('.nav-links > li > button').forEach(btn => {
+    btn.addEventListener('click', e => {
+      if (window.innerWidth <= 900) {
+        e.preventDefault();
+        btn.parentElement.classList.toggle('open-dd');
+      }
+    });
+  });
+
+  // Modal
+  function openModal() {
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+    // reset after close
+    setTimeout(() => {
+      document.getElementById('modal-form-content').style.display = 'block';
+      document.getElementById('modal-success').style.display = 'none';
+    }, 300);
+  }
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('modal-overlay')) closeModal();
+  }
+  function submitModal() {
+    document.getElementById('modal-form-content').style.display = 'none';
+    document.getElementById('modal-success').style.display = 'block';
+  }
+
+  // Hide float btn when modal open
+  document.getElementById('modal-overlay').addEventListener('click', () => {});
+
+  // Animate outcome bars on scroll
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.width = entry.target.dataset.width;
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.outcome-bar').forEach(bar => {
+    bar.dataset.width = bar.style.width;
+    bar.style.width = '0';
+    barObserver.observe(bar);
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (navLinks.classList.contains('open')) navLinks.classList.remove('open');
+      }
+    });
+  });
+
+  // Hide float button when scrolled to top
+  window.addEventListener('scroll', () => {
+    const floatBtn = document.getElementById('float-btn');
+    floatBtn.style.opacity = window.scrollY > 200 ? '1' : '0';
+    floatBtn.style.pointerEvents = window.scrollY > 200 ? 'auto' : 'none';
+  });
+  document.getElementById('float-btn').style.opacity = '0';
+  document.getElementById('float-btn').style.transition = 'opacity 0.3s';
+</script>
+</body>
+</html>
